@@ -15,6 +15,7 @@ class Mods(object):
         self.Delete = Delete
 global UploaderConfig
 fin = open('./Config.json')
+#读取Config文件
 a = json.load(fin)
 if a.has_key('Url') is False:
     UploaderConfig = Uploader("www.bigcraft.cn",a['Name'],a['Port'])
