@@ -1,18 +1,25 @@
 import json
+import urllib
+import urllib2
 class Uploader(object):
     def __init__(self,Url,Name,Port):
-        self.Url="www.bigcraft.cn"
+        self.Url="http://www.bigcraft.cn"
         self.Name=Name
         self.Port=Port
-    def A(self):
-        return self.Url+self.Port
-class Mods(object):
-    def __init__(self,Path,MD5,Href,Ignore,Delete):
-        self.Path = Path
-        self.MD5 = MD5
-        self.Href = Href
-        self.Ignore = Ignore
-        self.Delete = Delete
+        self.FullAddress=self.Url+":"+bytes(self.Port)+"/Mods.json"
+#,Path,MD5,Href,Ignore,Delete        
+class Mod(object):
+    Path=""
+    MD5=""
+    Href=""
+    Ignore=""
+    Delete=""
+    # def __init__(self):
+    #     self.Path = Path
+    #     self.MD5 = MD5
+    #     self.Href = Href
+    #     self.Ignore = Ignore
+    #     self.Delete = Delete
 global UploaderConfig
 fin = open('./Config.json')
 #读取Config文件
@@ -21,5 +28,13 @@ if a.has_key('Url') is False:
     UploaderConfig = Uploader("www.bigcraft.cn",a['Name'],a['Port'])
 else:
     UploaderConfig = Uploader(a['Url'],a['Name'],a['Port'])
+req = urllib2.Request("http://www.bigcraft.cn:2333/Mods.json")
+res_data = urllib2.urlopen(req)
+res = res_data.read()
+#html = urllib.urlopen("http://www.bigcraft.cn:2298/Mods.json")
+#.replace("\r","").replace("\n","")
+datastr = json.loads(res.replace("\r","").replace("\n",""),Mod)
+# b = json.JSONDecoder(object_hook=Uploader)
+
 fin.close()
 print a
