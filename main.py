@@ -41,7 +41,7 @@ UpdaterConfig = json.load(configFile,object_hook=ConvertUpdaterHook)
 #     UploaderConfig = Uploader("www.bigcraft.cn",a['Name'],a['Port'])
 # else:
 #     UploaderConfig = Uploader(a['Url'],a['Name'],a['Port'])
-req = urllib2.Request("http://www.bigcraft.cn:2333/Mods.json")
+req = urllib2.Request(UpdaterConfig.FullAddress())
 res_data = urllib2.urlopen(req)
 res = res_data.read()
 #html = urllib.urlopen("http://www.bigcraft.cn:2298/Mods.json")
