@@ -7,7 +7,7 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config.python.pythonPath}",
-            "program": "${workspaceRoot}/main.py",
+            "program": "${workspaceRoot}/MetroPyQt.py",
             "args": [
                 "runserver",
                 "--noreload"
@@ -39,7 +39,7 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config.python.pythonPath}",
-            "program": "${workspaceRoot}/main.py",
+            "program": "${workspaceRoot}/MetroPyQt.py",
             "args": [
                 "dev",
                 "runserver",
