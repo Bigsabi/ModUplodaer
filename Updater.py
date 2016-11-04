@@ -2,6 +2,7 @@
 import urllib
 import urllib2
 import os
+import Helper
 #更新器基础信息
 class Updater(object):
     def __init__(self,Url,Name,Port,Version):
@@ -17,7 +18,7 @@ class Updater(object):
         #return self.ServerIcon
         if self.ServerIcon.strip():
             if os.path.exists('./resources/Server.ico') is False:
-                urllib.urlretrieve(self.ServerIcon,'./resources/Server.ico',Schedule)
+                urllib.urlretrieve(self.ServerIcon,'./resources/Server.ico',Helper.Schedule)
     def LoadServerInfo(self):
         req = urllib2.Request(self.FullAddress())
         res_data = urllib2.urlopen(req)
