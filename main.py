@@ -1,9 +1,7 @@
 #coding:utf-8
 from Tkinter import *
-import os
-import json
-import urllib
-import urllib2
+
+
 import hashlib
 #CustomPY
 import Helper

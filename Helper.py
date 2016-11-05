@@ -17,11 +17,21 @@ def appendModInfo(LocalMods):
 def appendModInfoByPath(filepath,LocalMods):
     for filePath in os.listdir(filepath):
         if os.path.isdir(filepath+filePath) is False:
-            f = open(filepath+filePath,'rb')
-            md5obj = hashlib.md5()
-            md5obj.update(f.read())
-            hash = md5obj.hexdigest()
+            myhash = hashlib.md5()
+            f = file(filepath+filePath,'rb')
+            while True:
+                b = f.read(8096)
+                if not b :
+                    break
+                myhash.update(b)
             f.close()
-            LocalMods.append(Mod.Mod(filepath+filePath,str(hash).upper(),"",False,False))
+            LocalMods.append(Mod.Mod(filepath+filePath,str(myhash.hexdigest()).upper(),"",False,False))
+            #return myhash.hexdigest()
+            # f = open(filepath+filePath,'rb')
+            # md5obj = hashlib.md5()
+            # md5obj.update(f.read())
+            # hash = md5obj.hexdigest()
+            # f.close()
+            # LocalMods.append(Mod.Mod(filepath+filePath,str(hash).upper(),"",False,False))
         else:
             appendModInfoByPath(filepath+filePath+"/",LocalMods)
