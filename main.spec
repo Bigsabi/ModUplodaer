@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\Bigcraft\\Desktop\\ModUploader'],
+             pathex=['C:\\Users\\Administrator\\Desktop\\ModUplodaer'],
              binaries=None,
              datas=None,
              hiddenimports=[],
@@ -25,4 +25,4 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
-          console=False )
+          console=False , icon='Head.ico')

@@ -87,7 +87,7 @@ def InitClient():
         #crifanLib.saveBinDataToFile(json.dumps(list(LocalMods),sort_keys=True, indent=4,cls=Mod.PythonObjectEncoder),'LocalModsInfo.json')
         WriteJson = "[\n"
         for ModInfo in LocalMods:
-            WriteJson += json.dumps(vars(ModInfo),sort_keys=True, indent=4)+
+            WriteJson += json.dumps(vars(ModInfo),sort_keys=True, indent=4)+","
         WriteJson+="\n]"
         crifanLib.saveBinDataToFile(WriteJson,'LocalModsInfo.json')
         WriteJson = None
